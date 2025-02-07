@@ -1,0 +1,40 @@
+clear_all
+get_all_affiliations
+get_all_publications
+get_all_connections
+# read data
+read "example-data/example-affiliations.txt" silent
+add_publication 0 "0" 42 LY ISY
+add_publication 1 "1" 42 TUNI ISY
+get_any_path TUNI LY
+add_publication 2 "2" 42 TUNI HY
+add_publication 3 "3" 42 TUNI TY
+get_all_connections
+get_connected_affiliations TUNI
+get_path_with_least_affiliations LY HY
+get_path_with_least_affiliations HY LY
+# add non connected affiliation, and test
+add_affiliation HUPS "not connected" (544,455)
+get_path_with_least_affiliations HY HUPS
+get_path_with_least_affiliations HUPS HY
+# test with inexistent affiliations
+get_path_with_least_affiliations FOUL HY
+get_path_with_least_affiliations HY FOUL
+# add publications, and retest
+add_publication 4 "4" 42 TUNI ISY
+add_publication 5 "5" 42 TUNI HY
+add_publication 6 "6" 42 TUNI HY
+get_path_with_least_affiliations LY HY
+get_path_with_least_affiliations HY LY
+# add publications to complicate the graph
+add_publication 7 "7" 42 TUNI HY ISY
+get_path_with_least_affiliations LY HY
+get_path_with_least_affiliations HY LY
+add_publication 8 "8" 42 TUNI HY ISY LY
+get_path_with_least_affiliations LY HY
+get_path_with_least_affiliations HY LY
+get_path_with_least_affiliations TY LY
+add_publication 9 "9" 42 TUNI TY
+get_path_with_least_affiliations TY LY
+get_all_connections
+get_connected_affiliations TUNI

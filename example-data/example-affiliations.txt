@@ -1,0 +1,5 @@
+add_affiliation ISY "Ita-Suomen yliopisto" (945,767)
+add_affiliation TUNI "Tampereen korkeakouluyhteiso" (542,455)
+add_affiliation HY "Helsingin yliopisto" (820,80)
+add_affiliation TY "Turun yliopisto" (366,219)
+add_affiliation LY "Lapin yliopisto" (740,1569)

@@ -1,0 +1,15 @@
+add_publication 6440429 "Publication1" 1992
+add_publication 2528474 "Publication2" 1994
+add_publication 1724359 "Publication3" 1996  
+add_publication 54224 "Publication4" 1998
+add_affiliation_to_publication TUNI 6440429
+add_affiliation_to_publication HY 6440429
+add_affiliation_to_publication ISY 6440429
+add_affiliation_to_publication TY 2528474
+add_affiliation_to_publication LY 2528474
+add_affiliation_to_publication TUNI 2528474
+add_affiliation_to_publication HY 1724359
+add_affiliation_to_publication TY 1724359
+add_reference 2528474 1724359
+add_reference 1724359 54224
+add_reference 6440429 54224

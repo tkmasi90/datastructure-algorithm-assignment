@@ -1,0 +1,48 @@
+clear_all
+get_all_affiliations
+get_all_publications
+get_all_connections
+# create test data
+add_affiliation A "A" (0,10)
+add_affiliation B "B" (40,10)
+add_affiliation C "C" (20,16)
+add_affiliation D "D" (20,14)
+add_publication 0 "0" 42 A B C D
+add_publication 1 "1" 42 D B
+get_all_connections
+# more points
+add_affiliation E "E" (24,11)
+add_affiliation F "F" (16,11)
+add_affiliation G "G" (16,8)
+add_affiliation H "H" (21,5)
+add_publication 2 "2" 42 A F
+get_any_path A F
+add_publication 3 "3" 42 A F
+add_publication 4 "4" 42 E F
+add_publication 5 "5" 42 E F
+add_publication 6 "6" 42 E F
+add_publication 7 "7" 42 E F
+add_publication 8 "8" 42 B E
+add_publication 9 "9" 42 B E
+add_publication 10 "10" 42 B E
+add_publication 11 "11" 42 A H
+add_publication 12 "12" 42 A H
+add_publication 13 "13" 42 A H
+add_publication 14 "14" 42 H B
+add_publication 15 "15" 42 H B
+get_all_connections
+get_connected_affiliations A
+# run route s
+get_path_of_least_friction A B
+get_path_of_least_friction B A
+
+# not connected endpoints
+get_path_of_least_friction A G
+get_path_of_least_friction G A
+# inexistent endpoints
+get_path_of_least_friction A I
+get_path_of_least_friction I A
+# add one more to see if the route changes
+add_publication 99 "99" 42 A F
+get_path_of_least_friction A B
+get_path_of_least_friction B A

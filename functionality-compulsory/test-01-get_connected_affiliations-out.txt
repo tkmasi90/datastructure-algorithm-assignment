@@ -1,0 +1,82 @@
+> clear_all
+Cleared all affiliations and publications
+> get_all_affiliations
+No affiliations!
+> get_all_publications
+No publications!
+> # read data
+> read "example-data/example-affiliations.txt" silent
+** Commands from 'example-data/example-affiliations.txt'
+...(output discarded in silent mode)...
+** End of commands from 'example-data/example-affiliations.txt'
+> read "example-data/example-publications.txt" silent
+** Commands from 'example-data/example-publications.txt'
+...(output discarded in silent mode)...
+** End of commands from 'example-data/example-publications.txt'
+> get_connected_affiliations ISY
+All connected affiliations from Ita-Suomen yliopisto (ISY)
+1. Helsingin yliopisto (HY) (weighted 1)
+2. Tampereen korkeakouluyhteiso (TUNI) (weighted 1)
+> get_connected_affiliations TUNI
+All connected affiliations from Tampereen korkeakouluyhteiso (TUNI)
+1. Helsingin yliopisto (HY) (weighted 1)
+2. Ita-Suomen yliopisto (ISY) (weighted 1)
+3. Lapin yliopisto (LY) (weighted 1)
+4. Turun yliopisto (TY) (weighted 1)
+> get_connected_affiliations HY
+All connected affiliations from Helsingin yliopisto (HY)
+1. Ita-Suomen yliopisto (ISY) (weighted 1)
+2. Tampereen korkeakouluyhteiso (TUNI) (weighted 1)
+3. Turun yliopisto (TY) (weighted 1)
+> get_connected_affiliations TY
+All connected affiliations from Turun yliopisto (TY)
+1. Helsingin yliopisto (HY) (weighted 1)
+2. Lapin yliopisto (LY) (weighted 1)
+3. Tampereen korkeakouluyhteiso (TUNI) (weighted 1)
+> get_connected_affiliations LY
+All connected affiliations from Lapin yliopisto (LY)
+1. Tampereen korkeakouluyhteiso (TUNI) (weighted 1)
+2. Turun yliopisto (TY) (weighted 1)
+> get_connected_affiliations NO
+No connections from NO!
+> # add publication, check weight
+> add_publication 0 "new0" 9001 TUNI LY
+Publication:
+   new0: year=9001, id=0
+> get_connected_affiliations TUNI
+All connected affiliations from Tampereen korkeakouluyhteiso (TUNI)
+1. Lapin yliopisto (LY) (weighted 2)
+2. Helsingin yliopisto (HY) (weighted 1)
+3. Ita-Suomen yliopisto (ISY) (weighted 1)
+4. Turun yliopisto (TY) (weighted 1)
+> # add publication 
+> add_publication 1 "new1" 42 TUNI HY LY TY
+Publication:
+   new1: year=42, id=1
+> get_connected_affiliations ISY
+All connected affiliations from Ita-Suomen yliopisto (ISY)
+1. Helsingin yliopisto (HY) (weighted 1)
+2. Tampereen korkeakouluyhteiso (TUNI) (weighted 1)
+> get_connected_affiliations TUNI
+All connected affiliations from Tampereen korkeakouluyhteiso (TUNI)
+1. Lapin yliopisto (LY) (weighted 3)
+2. Helsingin yliopisto (HY) (weighted 2)
+3. Turun yliopisto (TY) (weighted 2)
+4. Ita-Suomen yliopisto (ISY) (weighted 1)
+> get_connected_affiliations HY
+All connected affiliations from Helsingin yliopisto (HY)
+1. Tampereen korkeakouluyhteiso (TUNI) (weighted 2)
+2. Turun yliopisto (TY) (weighted 2)
+3. Ita-Suomen yliopisto (ISY) (weighted 1)
+4. Lapin yliopisto (LY) (weighted 1)
+> get_connected_affiliations TY
+All connected affiliations from Turun yliopisto (TY)
+1. Helsingin yliopisto (HY) (weighted 2)
+2. Lapin yliopisto (LY) (weighted 2)
+3. Tampereen korkeakouluyhteiso (TUNI) (weighted 2)
+> get_connected_affiliations LY
+All connected affiliations from Lapin yliopisto (LY)
+1. Tampereen korkeakouluyhteiso (TUNI) (weighted 3)
+2. Turun yliopisto (TY) (weighted 2)
+3. Helsingin yliopisto (HY) (weighted 1)
+> 

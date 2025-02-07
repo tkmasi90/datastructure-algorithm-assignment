@@ -1,0 +1,53 @@
+> clear_all
+Cleared all affiliations and publications
+> get_all_affiliations
+No affiliations!
+> get_all_publications
+No publications!
+> get_all_connections
+No connections!
+> # read data
+> read "example-data/example-affiliations.txt" silent
+** Commands from 'example-data/example-affiliations.txt'
+...(output discarded in silent mode)...
+** End of commands from 'example-data/example-affiliations.txt'
+> get_all_connections
+No connections!
+> read "example-data/example-publications.txt" silent
+** Commands from 'example-data/example-publications.txt'
+...(output discarded in silent mode)...
+** End of commands from 'example-data/example-publications.txt'
+> get_all_connections
+1. Helsingin yliopisto (HY) -> Ita-Suomen yliopisto (ISY) (weighted 1)
+2. Helsingin yliopisto (HY) -> Tampereen korkeakouluyhteiso (TUNI) (weighted 1)
+3. Helsingin yliopisto (HY) -> Turun yliopisto (TY) (weighted 1)
+4. Ita-Suomen yliopisto (ISY) -> Tampereen korkeakouluyhteiso (TUNI) (weighted 1)
+5. Lapin yliopisto (LY) -> Tampereen korkeakouluyhteiso (TUNI) (weighted 1)
+6. Lapin yliopisto (LY) -> Turun yliopisto (TY) (weighted 1)
+7. Tampereen korkeakouluyhteiso (TUNI) -> Turun yliopisto (TY) (weighted 1)
+> # add publication, check weight
+> add_publication 0 "new0" 9001 TUNI LY
+Publication:
+   new0: year=9001, id=0
+> get_all_connections
+1. Lapin yliopisto (LY) -> Tampereen korkeakouluyhteiso (TUNI) (weighted 2)
+2. Helsingin yliopisto (HY) -> Ita-Suomen yliopisto (ISY) (weighted 1)
+3. Helsingin yliopisto (HY) -> Tampereen korkeakouluyhteiso (TUNI) (weighted 1)
+4. Helsingin yliopisto (HY) -> Turun yliopisto (TY) (weighted 1)
+5. Ita-Suomen yliopisto (ISY) -> Tampereen korkeakouluyhteiso (TUNI) (weighted 1)
+6. Lapin yliopisto (LY) -> Turun yliopisto (TY) (weighted 1)
+7. Tampereen korkeakouluyhteiso (TUNI) -> Turun yliopisto (TY) (weighted 1)
+> # add publication 
+> add_publication 1 "new1" 42 TUNI HY LY TY
+Publication:
+   new1: year=42, id=1
+> get_all_connections
+1. Lapin yliopisto (LY) -> Tampereen korkeakouluyhteiso (TUNI) (weighted 3)
+2. Helsingin yliopisto (HY) -> Tampereen korkeakouluyhteiso (TUNI) (weighted 2)
+3. Helsingin yliopisto (HY) -> Turun yliopisto (TY) (weighted 2)
+4. Lapin yliopisto (LY) -> Turun yliopisto (TY) (weighted 2)
+5. Tampereen korkeakouluyhteiso (TUNI) -> Turun yliopisto (TY) (weighted 2)
+6. Helsingin yliopisto (HY) -> Ita-Suomen yliopisto (ISY) (weighted 1)
+7. Helsingin yliopisto (HY) -> Lapin yliopisto (LY) (weighted 1)
+8. Ita-Suomen yliopisto (ISY) -> Tampereen korkeakouluyhteiso (TUNI) (weighted 1)
+> 

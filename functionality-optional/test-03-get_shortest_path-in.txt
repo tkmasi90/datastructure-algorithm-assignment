@@ -1,0 +1,32 @@
+clear_all
+get_all_affiliations
+get_all_publications
+get_all_connections
+# create test affiliations and publications
+add_affiliation A "A" (0,80)
+add_affiliation B "B" (300,40)
+add_affiliation C "C" (300,80)
+add_affiliation D "D" (150,60)
+add_affiliation E "E" (230,50)
+add_affiliation F "F" (0,40)
+add_affiliation G "G" (0,0)
+add_affiliation H "H" (160,0)
+add_affiliation I "I" (210,20)
+add_affiliation J "J" (120,51)
+add_publication 0 "0" 42 A C D
+add_publication 1 "1" 42 D E F
+add_publication 2 "2" 42 E B C
+add_publication 3 "3" 42 B I
+add_publication 4 "4" 42 A F
+add_publication 5 "5" 42 G F
+add_publication 6 "6" 42 F B
+add_publication 7 "7" 42 A H
+add_publication 8 "8" 42 A C
+add_publication 9 "9" 42 D E
+add_publication 10 "10" 42 C B
+get_shortest_path A B
+get_shortest_path B A
+get_shortest_path A J
+get_shortest_path J A
+get_shortest_path K A
+get_shortest_path A K

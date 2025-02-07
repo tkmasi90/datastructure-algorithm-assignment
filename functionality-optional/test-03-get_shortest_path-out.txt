@@ -1,0 +1,89 @@
+> clear_all
+Cleared all affiliations and publications
+> get_all_affiliations
+No affiliations!
+> get_all_publications
+No publications!
+> get_all_connections
+No connections!
+> # create test affiliations and publications
+> add_affiliation A "A" (0,80)
+Affiliation:
+   A: pos=(0,80), id=A
+> add_affiliation B "B" (300,40)
+Affiliation:
+   B: pos=(300,40), id=B
+> add_affiliation C "C" (300,80)
+Affiliation:
+   C: pos=(300,80), id=C
+> add_affiliation D "D" (150,60)
+Affiliation:
+   D: pos=(150,60), id=D
+> add_affiliation E "E" (230,50)
+Affiliation:
+   E: pos=(230,50), id=E
+> add_affiliation F "F" (0,40)
+Affiliation:
+   F: pos=(0,40), id=F
+> add_affiliation G "G" (0,0)
+Affiliation:
+   G: pos=(0,0), id=G
+> add_affiliation H "H" (160,0)
+Affiliation:
+   H: pos=(160,0), id=H
+> add_affiliation I "I" (210,20)
+Affiliation:
+   I: pos=(210,20), id=I
+> add_affiliation J "J" (120,51)
+Affiliation:
+   J: pos=(120,51), id=J
+> add_publication 0 "0" 42 A C D
+Publication:
+   0: year=42, id=0
+> add_publication 1 "1" 42 D E F
+Publication:
+   1: year=42, id=1
+> add_publication 2 "2" 42 E B C
+Publication:
+   2: year=42, id=2
+> add_publication 3 "3" 42 B I
+Publication:
+   3: year=42, id=3
+> add_publication 4 "4" 42 A F
+Publication:
+   4: year=42, id=4
+> add_publication 5 "5" 42 G F
+Publication:
+   5: year=42, id=5
+> add_publication 6 "6" 42 F B
+Publication:
+   6: year=42, id=6
+> add_publication 7 "7" 42 A H
+Publication:
+   7: year=42, id=7
+> add_publication 8 "8" 42 A C
+Publication:
+   8: year=42, id=8
+> add_publication 9 "9" 42 D E
+Publication:
+   9: year=42, id=9
+> add_publication 10 "10" 42 C B
+Publication:
+   10: year=42, id=10
+> get_shortest_path A B
+1. A (A) -> D (D) (weighted 1) (distance 151)
+2. D (D) -> E (E) (weighted 2) (distance 80)
+3. E (E) -> B (B) (weighted 1) (distance 70)
+> get_shortest_path B A
+1. B (B) -> E (E) (weighted 1) (distance 70)
+2. E (E) -> D (D) (weighted 2) (distance 80)
+3. D (D) -> A (A) (weighted 1) (distance 151)
+> get_shortest_path A J
+No route found! (empty route returned)
+> get_shortest_path J A
+No route found! (empty route returned)
+> get_shortest_path K A
+No route found! (empty route returned)
+> get_shortest_path A K
+No route found! (empty route returned)
+> 

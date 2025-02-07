@@ -1,0 +1,113 @@
+> clear_all
+Cleared all affiliations and publications
+> get_all_affiliations
+No affiliations!
+> get_all_publications
+No publications!
+> get_all_connections
+No connections!
+> # create test data
+> add_affiliation A "A" (0,10)
+Affiliation:
+   A: pos=(0,10), id=A
+> add_affiliation B "B" (40,10)
+Affiliation:
+   B: pos=(40,10), id=B
+> add_affiliation C "C" (20,16)
+Affiliation:
+   C: pos=(20,16), id=C
+> add_affiliation D "D" (20,14)
+Affiliation:
+   D: pos=(20,14), id=D
+> add_publication 0 "0" 42 A B C D
+Publication:
+   0: year=42, id=0
+> add_publication 1 "1" 42 D B
+Publication:
+   1: year=42, id=1
+> # more points
+> add_affiliation E "E" (24,11)
+Affiliation:
+   E: pos=(24,11), id=E
+> add_affiliation F "F" (16,11)
+Affiliation:
+   F: pos=(16,11), id=F
+> add_affiliation G "G" (16,8)
+Affiliation:
+   G: pos=(16,8), id=G
+> add_affiliation H "H" (21,5)
+Affiliation:
+   H: pos=(21,5), id=H
+> add_publication 2 "2" 42 A F
+Publication:
+   2: year=42, id=2
+> add_publication 3 "3" 42 A F
+Publication:
+   3: year=42, id=3
+> add_publication 4 "4" 42 E F
+Publication:
+   4: year=42, id=4
+> add_publication 5 "5" 42 E F
+Publication:
+   5: year=42, id=5
+> add_publication 6 "6" 42 E F
+Publication:
+   6: year=42, id=6
+> add_publication 7 "7" 42 E F
+Publication:
+   7: year=42, id=7
+> add_publication 8 "8" 42 B E
+Publication:
+   8: year=42, id=8
+> add_publication 9 "9" 42 B E
+Publication:
+   9: year=42, id=9
+> add_publication 10 "10" 42 B E
+Publication:
+   10: year=42, id=10
+> add_publication 11 "11" 42 A H
+Publication:
+   11: year=42, id=11
+> add_publication 12 "12" 42 A H
+Publication:
+   12: year=42, id=12
+> add_publication 13 "13" 42 A H
+Publication:
+   13: year=42, id=13
+> add_publication 14 "14" 42 H B
+Publication:
+   14: year=42, id=14
+> add_publication 15 "15" 42 H B
+Publication:
+   15: year=42, id=15
+> # run route s
+> get_path_of_least_friction A B
+1. A (A) -> H (H) (weighted 3) (distance 1)
+2. H (H) -> B (B) (weighted 2) (distance 2)
+> get_path_of_least_friction B A
+1. B (B) -> H (H) (weighted 2) (distance 1)
+2. H (H) -> A (A) (weighted 3) (distance 2)
+> 
+> # not connected endpoints
+> get_path_of_least_friction A G
+No route found! (empty route returned)
+> get_path_of_least_friction G A
+No route found! (empty route returned)
+> # inexistent endpoints
+> get_path_of_least_friction A I
+No route found! (empty route returned)
+> get_path_of_least_friction I A
+No route found! (empty route returned)
+> # add one more to see if the route changes
+> add_publication 99 "99" 42 A F
+Publication:
+   99: year=42, id=99
+> get_path_of_least_friction A B
+1. A (A) -> F (F) (weighted 3) (distance 1)
+2. F (F) -> E (E) (weighted 4) (distance 2)
+3. E (E) -> B (B) (weighted 3) (distance 3)
+> get_path_of_least_friction B A
+1. B (B) -> E (E) (weighted 3) (distance 1)
+2. E (E) -> F (F) (weighted 4) (distance 2)
+3. F (F) -> A (A) (weighted 3) (distance 3)
+> 

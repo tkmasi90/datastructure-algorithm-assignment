@@ -1,0 +1,15 @@
+clear_all
+get_all_affiliations
+get_all_publications
+get_all_connections
+# read data
+read "example-data/example-affiliations.txt" silent
+get_all_connections
+read "example-data/example-publications.txt" silent
+get_all_connections
+# add publication, check weight
+add_publication 0 "new0" 9001 TUNI LY
+get_all_connections
+# add publication 
+add_publication 1 "new1" 42 TUNI HY LY TY
+get_all_connections
